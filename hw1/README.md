@@ -4,6 +4,6 @@
 Результаты симуляции представлены на рисунке ниже
 ![Image alt](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw1/1.jpg)
 # Мультиплексор 
-Реализация мультиплексора 5-to-1.
+Реализация мультиплексора 5-to-1. На рисунке ниже представлены результаты симуляции. a,b,c,d,e - входы мультиплексора, sel - определяет, какое значение их списка будет подано на выход (out). 
 ![Image alt](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw1/2.png)
 ![Image alt](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw1/3.png)
