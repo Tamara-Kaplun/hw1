@@ -5,5 +5,5 @@
 ![Image alt](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw1/1.jpg)
 # Мультиплексор 
 Реализация мультиплексора 5-to-1.
-![Image alt](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw1/2.jpg)
-![Image alt](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw1/3.jpg)
+![Image alt](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw1/2.png)
+![Image alt](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw1/3.png)
