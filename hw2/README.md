@@ -33,7 +33,7 @@
 В этом случае переменная cls будет менять свое значение каждые 10 ps.
 ![Изображение 2](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/2.png)
 ### Пример 2 (sequential element design example )
-В этом примере блок always срабатывает по отрицательному фронту входного значения rstn и по положительному фронту значения clk. 
+В этом примере создается модуль ttf, получающий на вход d, clk и rstn и отдающий на выход q. Этот модуль содержит блок always, срабатывающий по отрицательному фронту входного значения rstn и по положительному фронту значения clk. 
 ```verilog
 module ttf (input d,
 		  clk,
@@ -84,3 +84,5 @@ endmodule
         </tr>
     </tbody>
 </table>
+Все эти случаи можно увидеть на рис. ниже. На нем представленны результаты симуляции и синтеза. Исходные файлы лежат в этой папке под названиями  [ttf.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ttf.v)  и [ttf_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ttf_testbench.v). 
+![Изображение 3](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/3.png)
