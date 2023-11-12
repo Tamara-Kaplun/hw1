@@ -84,7 +84,8 @@ endmodule
         </tr>
     </tbody>
 </table>
-Все эти случаи можно увидеть на рис. ниже. На нем представленны результаты симуляции и синтеза. Исходные файлы лежат в этой папке под названиями  [ttf.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ttf.v)  и [ttf_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ttf_testbench.v). 
+Все эти случаи можно увидеть на рис. ниже. На нем представленны результаты симуляции и синтеза. Исходные файлы лежат в этой папке под названиями  [ttf.v]
+<a href="[http://site.ru](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ttf.v)">указатель ссылки</a>   и [ttf_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ttf_testbench.v). 
 
 ![Изображение 3](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/3.png)
 
