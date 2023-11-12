@@ -26,7 +26,8 @@
     initial begin
       cls = 1;
     end
-    always cls = ~cls;
+    always #10 cls = ~cls;
   endmodule
 ```
+В этом случае переменная cls будет менять свое значение каждые 10 ps.
 ![Изображение 2](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/2.png)
