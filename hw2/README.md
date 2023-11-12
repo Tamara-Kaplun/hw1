@@ -21,6 +21,7 @@
 ![Изображение 1](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/1.png)
 Чтобы избежать этого, можно прямо указать время задержки:  
 ```verilog
+  //`timescale 1ns / 1ns 
   module testbench; 
   reg cls;
     initial begin
@@ -31,3 +32,4 @@
 ```
 В этом случае переменная cls будет менять свое значение каждые 10 ps.
 ![Изображение 2](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/2.png)
+### Пример 2 (sequential element design example )
