@@ -35,10 +35,10 @@
 ### Пример 2 (sequential element design example )
 В этом примере блок always срабатывает по отрицательному фронту входного значения rstn и по положительному фронту значения clk. 
 ```verilog
-module ttf (input d, 
-						clk,
-						rstn, 
-				output reg q);
+module ttf (input d,
+		  clk,
+      		  rstn, 
+	    output reg q);
 	always @(posedge clk or negedge rstn) begin
 		if(!rstn)
 			q<=0;
@@ -54,26 +54,34 @@ endmodule
 <table>
     <thead>
         <tr>
-            <th>Column 1</th>
-            <th>Column 2</th>
-            <th>Column 3</th>
+            <th> <!-- --> </th>
+            <th> <!-- --> </th>
+            <th> <!-- --> </th>
+	    <th> <!-- --> </th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td rowspan=4 align="center">R1 Text</td>
-            <td rowspan=2 align="center">R2 Text A</td>
-            <td align="center">R3 Text A</td>
+            <td rowspan=3 align="center">положительный фронт clk</td>
+            <td align="center"> rst = 0 </td>
+	    <td align="center"> <!-- --> </td>
+            <td align="center"> q = 0 </td>
         </tr>
         <tr>
-            <td align="center">R3 Text B</td>
+            <td rowspan=2 align="center">rst = 1</td>
+	    <td align="center"> d = 1 </td>
+	    <td align="center"> d = 0 </td>
         </tr>
         <tr>
-            <td rowspan=2 align="center">R2 Text B</td>
-            <td align="center">R3 Text C</td>
+	    <td align="center"> q = -q </td>
+	    <td align="center"> q = q </td>
         </tr>
         <tr>
-            <td align="center">R3 Text D</td>
+            <td align="center">отрицательный фронт rstn</td>
+	    <td align="center"> <!-- --> </td>
+	    <td align="center"> <!-- --> </td>
+            <td align="center">q = 0</td>
         </tr>
+
     </tbody>
 </table>
