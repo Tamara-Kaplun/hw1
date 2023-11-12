@@ -92,8 +92,11 @@ endmodule
 ![Изображение 3](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/3.png)
 
 ### Пример 3 (combinational element design)
+
 Этот пример показывает, как используется блок always в реализации комбинационных схем. В данном случае была взята следующая схема: 
+
 ![Изображение 4](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/4.png)
+
 Ee реализация на языке verilog:
 ```verilog
 module combo   (input a,
@@ -107,9 +110,14 @@ module combo   (input a,
 endmodule
 ```
 Результат симуляции и синтеза представленны на рисунке ниже. 
+
 ![Изображение 5](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/5.png)
+
 Для проверки симуляции использовалась таблица истинности этой  комбинационной схемы 
+
 ![Изображение 6](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/6.png)
+
 Исходники примера хранятся в следующих файлах:
-1.
-2.
+
+1. [combo.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/combo.v)
+2. [combo_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/combo_testbench.v)
