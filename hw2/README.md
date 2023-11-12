@@ -64,7 +64,7 @@ endmodule
         <tr>
             <td rowspan=3 align="center">положительный фронт clk</td>
             <td align="center">  0 </td>
-	    <td align="center"> &forall  </td>
+	    <td align="center"> ∀ </td>
             <td align="center">  0 </td>
         </tr>
         <tr>
@@ -79,7 +79,7 @@ endmodule
         <tr>
             <td align="center">отрицательный фронт rstn</td>
 	    <td align="center">  0 </td>
-	    <td align="center"> &forall  </td>
+	    <td align="center"> ∀  </td>
             <td align="center"> 0</td>
         </tr>
     </tbody>
