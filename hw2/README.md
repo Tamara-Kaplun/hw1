@@ -54,34 +54,33 @@ endmodule
 <table>
     <thead>
         <tr>
-            <th> <!-- --> </th>
-            <th> <!-- --> </th>
-            <th> <!-- --> </th>
-	    <th> <!-- --> </th>
+            <th> sensitivity list </th>
+            <th> rst </th>
+            <th> d </th>
+	    <th> q </th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td rowspan=3 align="center">положительный фронт clk</td>
-            <td align="center"> rst = 0 </td>
-	    <td align="center"> <!-- --> </td>
-            <td align="center"> q = 0 </td>
+            <td align="center">  0 </td>
+	    <td align="center"> &forall  </td>
+            <td align="center">  0 </td>
         </tr>
         <tr>
-            <td rowspan=2 align="center">rst = 1</td>
-	    <td align="center"> d = 1 </td>
-	    <td align="center"> d = 0 </td>
+            <td rowspan=2 align="center"> 1</td>
+	    <td align="center">  1 </td>
+	    <td align="center"> -q  </td>
         </tr>
         <tr>
-	    <td align="center"> q = -q </td>
-	    <td align="center"> q = q </td>
+	    <td align="center">  0 </td>
+	    <td align="center">  q </td>
         </tr>
         <tr>
             <td align="center">отрицательный фронт rstn</td>
-	    <td align="center"> <!-- --> </td>
-	    <td align="center"> <!-- --> </td>
-            <td align="center">q = 0</td>
+	    <td align="center">  0 </td>
+	    <td align="center"> &forall  </td>
+            <td align="center"> 0</td>
         </tr>
-
     </tbody>
 </table>
