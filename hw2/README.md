@@ -1,6 +1,8 @@
 # Практическая работа по Verilog №2 
 ## Verilog always block
-В этом подпункте реализованы примеры со страницы https://www.chipverify.com/verilog/verilog-always-block.
+В этом подпункте реализованы примеры со страницы 
+
+[verilog-always-block](https://www.chipverify.com/verilog/verilog-always-block)
 ### Пример 1
 Блок always обладает следующей структурой: 
 ```verilog
@@ -121,3 +123,11 @@ endmodule
 
 1. [combo.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/combo.v)
 2. [combo_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/combo_testbench.v)
+
+## Combinational Logic with always 
+В этом подпункте реализованы примеры со страницы 
+
+[verilog-combinational-logic-always](https://www.chipverify.com/verilog/verilog-combinational-logic-always)
+
+### Пример 1 (simple combinational logic)
+
