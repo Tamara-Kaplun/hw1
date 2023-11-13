@@ -5,23 +5,20 @@ module testbench;
 	reg b;
 	reg c;
 	reg d;
-
 	wire  o;
 
-	
 	combo mux(a, b, c, d, o);
-   always #5 a = ~a;
-	always #10 b = ~b;
-	always #20 c = ~c;
-	always #40 d = ~d;
+  	always #40 a = ~a;
+	always #20 b = ~b;
+	always #10 c = ~c;
+	always #5 d = ~d;
     
     initial begin
-        //$monitor("[%0t] d=0x%0h clk=0x%0h rstn=0x%0h out=0x%0h",$time, d, clk, rstn, out);
-			
+		$monitor(" a=0x%0h b=0x%0h c=0x%0h d=0x%0h o=0x%0h", a, b, c, d, o);
 		 a = 0;
 		 b = 0;
 		 c = 0; 
 		 d = 0;
-			       
+		      				       
     end 
 endmodule
