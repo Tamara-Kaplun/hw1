@@ -163,7 +163,7 @@ endmodule
 
 ### Пример 2 (half adder)
 
-В этом примере реализован полусумматор - схема, вычисляющая сумму двух одноразрядных двоичных чисел. Она имеет 2 входа - a и b, и 2 выхода - sum и carry. В sum хранится младший разряд, в carry - старший. Схема представлена на рисунке ниже 
+В этом примере реализован полусумматор - схема, вычисляющая сумму двух одноразрядных двоичных чисел. Она имеет 2 входа - a и b, и 2 выхода - sum и cout. В sum хранится младший разряд, в cout - старший. Схема представлена на рисунке ниже 
 
 ![Изображение 10](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/10.png)
 
@@ -191,3 +191,33 @@ endmodule
 2. [ha_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ha_testbench.v)
 
 ### Пример 3 (full adder)
+
+В этом примере реализован полный сумматор - схема, вычисляющая сумму трех одноразрядных двоичных чисел. Она имеет 3 входа - a, b и cin, и 2 выхода - sum и cout. В sum хранится младший разряд, в carry - старший. Схема представлена на рисунке ниже 
+
+![Изображение 13](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/13.png)
+
+Ee реализация на языке verilog:
+```verilog
+module ha (input a, 
+	   input b,
+	   input cin,
+	   output reg sum, cout);
+	always @(a or  b) begin
+		{cout, sum} = a + b + cin;
+	end
+endmodule
+```
+Результат симуляции и синтеза представленны на рисунке ниже. 
+
+![Изображение 14](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/14.png)
+
+Вывод симуляции соответствует ее теоретическому описанию  
+
+![Изображение 15](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/15.png)
+
+Исходники примера хранятся в следующих файлах:
+
+1. [fa.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/fa.v)
+2. [fa_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/fa_testbench.v)
+
+### Пример 4 (2x1 multiplexer)
