@@ -221,3 +221,30 @@ endmodule
 2. [fa_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/fa_testbench.v)
 
 ### Пример 4 (2x1 multiplexer)
+
+В этом примере реализован мультиплексор - схема, позволяеющая передать сигнал с одного из двух входов (a или b) на выход c; при этом выбор желаемого входа осуществляется подачей управляющего сигнала sel. Схема представлена на рисунке ниже 
+
+![Изображение 16](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/16.png)
+
+Ee реализация на языке verilog:
+```verilog
+module mux_2x1 (input a, b, sel, 
+		output reg c);
+				
+	always @(a or b or sel) begin
+		c = sel ? a : b;
+	end
+endmodule
+```
+Результат симуляции и синтеза представленны на рисунке ниже. 
+
+![Изображение 17](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/17.png)
+
+Вывод симуляции соответствует ее теоретическому описанию  
+
+![Изображение 18](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/18.png)
+
+Исходники примера хранятся в следующих файлах:
+
+1. [mux_2x1.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/mux_2x1.v)
+2. [mux_2x1_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/mux_2x1_testbench.v)
