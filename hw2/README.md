@@ -131,3 +131,33 @@ endmodule
 
 ### Пример 1 (simple combinational logic)
 
+В этом примере также реализовывается комбинационная схема (изображена на рисунке ниже).
+
+![Изображение 7](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/7.png)
+
+Ee реализация на языке verilog:
+```verilog
+module combo_2 (input a, 
+		input b,
+		input c,
+		input d,
+		input e,
+		output reg z);
+	always @(a or  b or c or d or e) begin
+		z = ((a & b) | (c^d) & (~e)); 
+	end
+endmodule
+```
+Результат симуляции и синтеза представленны на рисунке ниже. 
+
+![Изображение 8](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/8.png)
+
+Для проверки корректности работы можно сравнить таблицу истинности из примера (слева) и вывод симуляции (справа) 
+
+![Изображение 9](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/9.png)
+
+Исходники примера хранятся в следующих файлах:
+
+1. [combo_2.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/combo_2.v)
+2. [combo_2_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/combo_2_testbench.v)
+
