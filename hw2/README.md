@@ -189,3 +189,5 @@ endmodule
 
 1. [ha.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ha.v)
 2. [ha_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ha_testbench.v)
+
+### Пример 3 (full adder)
