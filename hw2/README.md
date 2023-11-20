@@ -161,3 +161,31 @@ endmodule
 1. [combo_2.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/combo_2.v)
 2. [combo_2_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/combo_2_testbench.v)
 
+### Пример 2 (half adder)
+
+В этом примере реализован полусумматор - схема, вычисляющая сумму двух одноразрядных двоичных чисел. Она имеет 2 входа - a и b, и 2 выхода - sum и carry. В sum хранится младший разряд, в carry - старший. Схема представлена на рисунке ниже 
+
+![Изображение 10](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/10.png)
+
+Ee реализация на языке verilog:
+```verilog
+module ha (input a, 
+	   input b,
+	   output reg sum, cout);
+	always @(a or  b) begin
+		{cout, sum} = a + b;
+	end
+endmodule
+```
+Результат симуляции и синтеза представленны на рисунке ниже. 
+
+![Изображение 11](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/11.png)
+
+Вывод симуляции соответствует ее теоретическому описанию  
+
+![Изображение 12](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/12.png)
+
+Исходники примера хранятся в следующих файлах:
+
+1. [ha.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ha.v)
+2. [ha_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/ha_testbench.v)
