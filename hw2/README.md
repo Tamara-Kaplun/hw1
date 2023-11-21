@@ -282,4 +282,33 @@ endmodule
 1. [demux_1x4.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/demux_1x4.v)
 2. [demux_1x4_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/demux_1x4_testbench.v)
 
-   
+### Пример 6 (4x16 decoder)  
+
+В этом примере реализуется 3-битный декодер с восьмью выходами. Он включает один из восьми выходов, соответствующий значению входа in, только если вход en равен 1. В противном случае все выходы будут равны 0. Схема представлена на рисунке ниже 
+
+![Изображение 24](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/24.png)
+
+Ee реализация на языке verilog:
+```verilog
+module dec_3x8 (input en,
+		input [3:0] in, 	 
+		output reg [15:0] out);
+				
+	always @(en or in) begin
+		out = en ? 1 << in: 0;
+	end
+endmodule
+```
+Результат симуляции и синтеза представленны на рисунке ниже. 
+
+![Изображение 25](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/25.png)
+
+Вывод симуляции (справа) соответствует ее теоретическому описанию и совпадает с выводом, приведенным в примере (слева)
+
+![Изображение 26](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/26.png)
+
+Исходники примера хранятся в следующих файлах:
+
+1. [dec_3x8.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/dec_3x8.v)
+2. [dec_3x8_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/dec_3x8_testbench.v)
+
