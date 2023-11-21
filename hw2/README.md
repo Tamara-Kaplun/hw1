@@ -312,3 +312,43 @@ endmodule
 1. [dec_3x8.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/dec_3x8.v)
 2. [dec_3x8_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/dec_3x8_testbench.v)
 
+## Sequential logic with always
+В этом подпункте реализованы примеры реализации схем последовательной логики со страницы 
+
+[verilog-always-block](https://www.chipverify.com/verilog/verilog-sequential-logic-always)
+
+### Пример 1 (jk flip flop)  
+
+В этом примере реализует JK-триггер с асинхронным сбросом, который может изменять свое состояние в зависимости от значений входов j и k, а также сигнала сброса rstn при наличии положительного фронта тактового сигнала clk.
+
+![Изображение 27](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/27.png)
+
+Ee реализация на языке verilog:
+```verilog
+module jk_ff    (input j,
+		input k,
+		input rstn,
+		input clk,
+		output reg q);
+				
+	always @(posedge clk or negedge rstn) begin
+		if(!rstn) begin
+			q <= 0;
+		end else begin
+			q <= (j & ~q) | (~k & q);
+		end
+	end
+endmodule
+```
+Результат симуляции и синтеза представленны на рисунке ниже. 
+
+![Изображение 28](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/28.png)
+
+
+Исходники примера хранятся в следующих файлах:
+
+1. [jk_ff.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/jk_ff.v)
+2. [jk_ff_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/jk_ff_testbench.v)
+
+
+### Пример 2 (modulo-10 counter)  
