@@ -319,7 +319,7 @@ endmodule
 
 ### Пример 1 (jk flip flop)  
 
-В этом примере реализует JK-триггер с асинхронным сбросом, который может изменять свое состояние в зависимости от значений входов j и k, а также сигнала сброса rstn при наличии положительного фронта тактового сигнала clk.
+В этом примере реализуется JK-триггер с асинхронным сбросом, который может изменять свое состояние в зависимости от значений входов j и k, а также сигнала сброса rstn при наличии положительного фронта тактового сигнала clk.
 
 ![Изображение 27](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/27.png)
 
@@ -352,3 +352,79 @@ endmodule
 
 
 ### Пример 2 (modulo-10 counter)  
+
+В этом примере реализуется 4-битный модульный счетчик с асинхронным сбросом.
+При положительном фронте тактового сигнала clk происходит выполнение следующих операций:
+
+1. Если сигнал сброса rstn равен 0, то выход out устанавливается в 0 (сброс счетчика).
+
+2. Если сигнал сброса rstn равен 1, то выполняется следующая логика:
+   - Если текущее значение счетчика out равно 10, то выход out устанавливается в 0 (обнуление счетчика).
+   - В противном случае, текущее значение счетчика out увеличивается на 1.
+     
+Ee реализация на языке verilog:
+```verilog
+module mod10_counter (input clk,
+	input rstn,
+	output reg [3:0] out);
+				
+	always @(posedge clk) begin
+		if(!rstn) begin
+			out <= 0;
+		end else begin
+			if (out == 10)
+				out <= 0;
+			else 
+				out <= out + 1;
+		end
+	end
+endmodule
+```
+Результат симуляции и синтеза представленны на рисунке ниже. 
+
+![Изображение 29](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/29.png)
+
+Исходники примера хранятся в следующих файлах:
+
+1. [mod10_counter.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/mod10_counter.v)
+2. [mod10_counter_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/mod10_counter_testbench.v)
+
+ ### Пример 3 (4bit left shift register)  
+ 
+ В этом примере реализуется 4-битный регистр с левым сдвигом и асинхронным сбросом.
+При положительном фронте тактового сигнала clk происходит выполнение следующих операций:
+
+При положительном фронте тактового сигнала clk происходит выполнение следующих операций:
+
+1. Если сигнал сброса rstn равен 0, то выход out устанавливается в 0 (сброс регистра).
+
+2. Если сигнал сброса rstn равен 1, то выполняется следующая логика:
+   - Значение выхода out обновляется путем сдвига его битов влево на одну позицию.
+   - Младший бит регистра заменяется значением входа данных d.
+
+Ee реализация на языке verilog:
+```verilog
+module lshift_4b_reg (input d,
+			input clk, 
+			input rstn,
+			output reg [3:0] out);
+				
+	always @(posedge clk) begin
+		if (!rstn) begin
+			out <= 0;
+		end else begin
+			out <= {out[2:0], d};
+		end
+	end
+endmodule
+```
+Результат симуляции и синтеза представленны на рисунке ниже. 
+
+![Изображение 23](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/23.png)
+
+Исходники примера хранятся в следующих файлах:
+
+1. [lshift_4b_reg.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/lshift_4b_reg.v)
+2. [lshift_4b_reg_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/lshift_4b_reg_testbench.v)
+
+
