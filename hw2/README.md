@@ -248,3 +248,38 @@ endmodule
 
 1. [mux_2x1.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/mux_2x1.v)
 2. [mux_2x1_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/mux_2x1_testbench.v)
+
+### Пример 5 (1x4 demultiplexer)
+
+В этом примере реализован демультиплексор 1x4 - схема, подключающая входной сигнал f к одному из четырех выходов (a,b,c,d), номер которого задается sel. Схема представлена на рисунке ниже 
+
+![Изображение 19](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/19.png)
+
+Ee реализация на языке verilog:
+```verilog
+module demux_1x4 (input f,
+		  input [1:0] sel, 
+		  output reg a, b, c, d);
+				
+	always @(f or sel) begin
+		a = f & ~sel[1] & ~sel[0];
+		b = f & sel[1] & ~sel[0];
+		c = f & ~sel[1] & sel[0];
+		d = f & sel[1] & sel[0];
+	end
+endmodule
+```
+Результат симуляции и синтеза представленны на рисунке ниже. 
+
+![Изображение 20](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/20.png)
+
+Вывод симуляции соответствует ее теоретическому описанию  
+
+![Изображение 21](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/images/21.png)
+
+Исходники примера хранятся в следующих файлах:
+
+1. [demux_1x4.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/demux_1x4.v)
+2. [demux_1x4_testbench.v](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw2/demux_1x4_testbench.v)
+
+   
