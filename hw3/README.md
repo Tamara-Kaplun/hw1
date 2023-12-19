@@ -7,7 +7,7 @@
 
 Результат сборки представлен на изображении ниже: 
 
-![Изображение 1](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw3/images/1.png)
+![Изображение 1](https://github.com/Tamara-Kaplun/hw_fpga/blob/main/hw3/imagines/1.png)
 
 Исходники примера хранятся в следующих файлах:
 
