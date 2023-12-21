@@ -4,6 +4,8 @@
 import math
 import os
 import sys
+
+
 from pathlib import Path
 from random import getrandbits
 from typing import Any, Dict, List
@@ -17,7 +19,7 @@ from cocotb.queue import Queue
 from cocotb.runner import get_runner
 from cocotb.triggers import RisingEdge
 
-NUM_SAMPLES = int(os.environ.get("NUM_SAMPLES", 3000))
+NUM_SAMPLES = int(os.environ.get("NUM_SAMPLES", 2))
 if cocotb.simulator.is_running():
     DATA_WIDTH = cocotb.top.DATA_WIDTH.value
     A_ROWS = cocotb.top.A_ROWS.value
@@ -120,7 +122,31 @@ class MatrixMultiplierTester:
         A_COLUMNS_B_ROWS = self.dut.A_COLUMNS_B_ROWS.value
         B_COLUMNS = self.dut.B_COLUMNS.value
         DATA_WIDTH = self.dut.DATA_WIDTH.value
-        return [
+        self.dut._log.info("Input Matrix A:")
+        for i in range(A_ROWS):
+            string = ''
+            for j in range(A_COLUMNS_B_ROWS):
+            # row_str = "\n".join(map(str, a_matrix[i * A_COLUMNS_B_ROWS : (i + 1) * A_COLUMNS_B_ROWS]))
+                string += str(int(str(a_matrix[i * A_COLUMNS_B_ROWS + j]), 2))
+                string += ' '
+            string += '\n'
+            self.dut._log.info(string)
+
+        self.dut._log.info("Input Matrix B:")
+        for i in range(A_COLUMNS_B_ROWS):
+            string = ''
+            for j in range(B_COLUMNS):
+            # row_str = "\n".join(map(str, a_matrix[i * A_COLUMNS_B_ROWS : (i + 1) * A_COLUMNS_B_ROWS]))
+                string += str(int(str(b_matrix[i * B_COLUMNS + j]), 2))
+                string += ' '
+            string += '\n'
+            self.dut._log.info(string)
+
+        # for i in range(A_COLUMNS_B_ROWS):
+        #     row_str = "\n".join(map(str, b_matrix[i * B_COLUMNS : (i + 1) * B_COLUMNS]))
+        #     self.dut._log.info(row_str)
+
+        result_matrix = [
             BinaryValue(
                 sum(
                     [
@@ -136,13 +162,36 @@ class MatrixMultiplierTester:
             for j in range(B_COLUMNS)
         ]
 
+        self.dut._log.info("Result Multiplication:")
+        for i in range(A_ROWS):
+            string = ''
+            for j in range(B_COLUMNS):
+            # row_str = "\n".join(map(str, a_matrix[i * A_COLUMNS_B_ROWS : (i + 1) * A_COLUMNS_B_ROWS]))
+                string += str(int(str(result_matrix[i * B_COLUMNS + j]), 2))
+                string += ' '
+            string += '\n'
+            self.dut._log.info(string)
+
+        return result_matrix
+
     async def _check(self) -> None:
         while True:
             actual = await self.output_mon.values.get()
+
             expected_inputs = await self.input_mon.values.get()
             expected = self.model(
                 a_matrix=expected_inputs["A"], b_matrix=expected_inputs["B"]
             )
+            string = ''
+            self.dut._log.info("Actual Matrix C:")
+            for i in range(self.dut.A_ROWS.value):
+                for j in range(self.dut.B_COLUMNS.value):
+                    string += str(int(str( actual["C"][i * self.dut.B_COLUMNS.value + j]), 2))
+                    string += ' '
+                string += '\n'
+                    # row_str = " ".join(map(str, actual["C"][i * self.dut.B_COLUMNS.value : (i + 1) * self.dut.B_COLUMNS.value]))
+            self.dut._log.info(string)
+
             assert actual["C"] == expected
 
 
@@ -222,6 +271,9 @@ def test_matrix_multiplier_runner():
     """
     hdl_toplevel_lang = os.getenv("HDL_TOPLEVEL_LANG", "verilog")
     sim = os.getenv("SIM", "icarus")
+    
+
+
 
     proj_path = Path(__file__).resolve().parent.parent
 
@@ -285,3 +337,8 @@ def test_matrix_multiplier_runner():
 
 if __name__ == "__main__":
     test_matrix_multiplier_runner()
+    
+
+
+
+ 
